@@ -15,3 +15,7 @@
 <input id='signup-password' form='signup-form' type="password" name="password" placeholder="Password" required="required" pattern=".{8,}" title="Eight or more characters.">
 <input id='signup-password-repeat' form='signup-form' type="password" name="password_repeat" placeholder="Repeat Password" required="required" pattern=".{8,}" title="Eight or more characters.">
 <button id='signup-button' form='signup-form' type="submit" name="submit_signup">SIGNUP</button>
+
+<form id="logout-form" action="actions/logout.php" method="post">
+  <input type="submit" name="logout" value="logout">
+</form>

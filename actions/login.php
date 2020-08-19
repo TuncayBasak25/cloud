@@ -2,6 +2,7 @@
 session_start();
 chdir("..");
 include "includes/class_auto_loader.php";
+$user_manager = new Users();
 
 if (isset($_POST['user_id']) === FALSE) {
   echo "User ID is empty.";
@@ -12,8 +13,6 @@ if (isset($_POST['password']) === FALSE) {
   echo "Password is empty.";
   exit;
 }
-
-$user_manager = new Users();
 
 if (strpos('@', $_POST['user_id']) === TRUE) { //If this is an email
   $email = $_POST['user_id'];
@@ -39,7 +38,8 @@ if (password_verify($_POST['password'], $user['password']) === FALSE) {
 }
 
 $time = time();
-$_SESSION['user'] = $time;
+$_SESSION['user'] = $user['username'];
+$_SESSION['log_id'] = $time;
 $user_manager->set_user_log_id($user['username'], $time);
 $user_manager->set_user_login_date($user['username'], $time);
 
