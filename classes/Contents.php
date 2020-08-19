@@ -31,7 +31,7 @@ class Contents extends MODEL {
 
   public function new_file($owner, $name, $full_path, $type = 'file') {
     $creation_date = time();
-    $this->query("INSERT INTO $this->table (owner, name, full_path) VALUES (?,?,?,?)", $owner, $name, $full_path, $type);
+    $this->query("INSERT INTO $this->table (owner, name, full_path, type, creation_date) VALUES (?,?,?,?,?)", $owner, $name, $full_path, $type, $creation_date);
   }
 
   public function get_content($name, $full_path) {

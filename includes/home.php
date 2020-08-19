@@ -23,5 +23,12 @@
 <form id="new-folder-form" action="actions/new_folder.php" method="post">
   <input id='folder-name' form='new-folder-form' type="text" name="folder_name" placeholder="Folder name" required="required">
   <input id='folder-path' form='new-folder-form' type="text" name="folder_path" placeholder="Folder path" required="required">
-  <input type="submit" name="logout" value="logout">
+  <input type="submit" name="Create new folder" value="new_folder">
+</form>
+
+<form id="new-file-form" action="actions/new_file.php" method="post" enctype="multipart/form-data">
+  <input id='file-name' form='new-file-form' type="text" name="file_name" placeholder="File name" required="required">
+  <input id='file-path' form='new-file-form' type="text" name="file_path" placeholder="File path" required="required">
+  <input type="file" name="file" placeholder="Upload a file" required="required">
+  <input type="submit" name="Upload new file" value="new_file">
 </form>
