@@ -19,3 +19,9 @@
 <form id="logout-form" action="actions/logout.php" method="post">
   <input type="submit" name="logout" value="logout">
 </form>
+
+<form id="new-folder-form" action="actions/new_folder.php" method="post">
+  <input id='folder-name' form='new-folder-form' type="text" name="folder_name" placeholder="Folder name" required="required">
+  <input id='folder-path' form='new-folder-form' type="text" name="folder_path" placeholder="Folder path" required="required">
+  <input type="submit" name="logout" value="logout">
+</form>

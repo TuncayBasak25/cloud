@@ -26,7 +26,7 @@ class Contents extends MODEL {
 
   public function new_folder($owner, $name, $full_path) {
     $creation_date = time();
-    $this->query("INSERT INTO $this->table (owner, name, full_path) VALUES (?,?,?)", $owner, $name, $full_path);
+    $this->query("INSERT INTO $this->table (owner, name, full_path, creation_date) VALUES (?,?,?,?)", $owner, $name, $full_path, $creation_date);
   }
 
   public function new_file($owner, $name, $full_path, $type = 'file') {
