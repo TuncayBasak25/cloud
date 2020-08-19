@@ -30,20 +30,20 @@ class Users extends MODEL {
   }
 
   public function get_user($username_or_email) {
-    if (strpos("@", $username_or_email)) {
-      return $this->query("SELECT * FROM $this->table WHERE email = ?", $username_or_email)->fetch_assoc();
+    if (strpos($username_or_email, '@') === FALSE) {
+      return $this->query("SELECT * FROM $this->table WHERE username = ?", $username_or_email)->fetch_assoc();
     }
     else {
-      return $this->query("SELECT * FROM $this->table WHERE username = ?", $username_or_email)->fetch_assoc();
+      return $this->query("SELECT * FROM $this->table WHERE email = ?", $username_or_email)->fetch_assoc();
     }
   }
 
   public function delete_user($username_or_email) {
-    if (strpos("@", $username_or_email)) {
-      $this->query("DELETE FROM $this->table WHERE email = ?", $username_or_email);
+    if (strpos($username_or_email, '@') === FALSE) {
+      $this->query("DELETE FROM $this->table WHERE username = ?", $username_or_email);
     }
     else {
-      $this->query("DELETE FROM $this->table WHERE username = ?", $username_or_email);
+      $this->query("DELETE FROM $this->table WHERE email = ?", $username_or_email);
     }
   }
 
