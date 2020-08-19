@@ -6,10 +6,6 @@ $user_manager = new Users();
 $content_manager = new Contents();
 $data_manager = new Data();
 
-foreach ($_FILES['file'] as $key => $value) {
-  echo $key . ' : ' . $value . '<br>';
-}
-
 if ($user_manager->refresh_connection($_SESSION['user'], $_SESSION['log_id']) === FALSE) {
   echo "Your login is timed out please loggin again.";
   exit;

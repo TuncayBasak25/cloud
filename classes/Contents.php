@@ -39,21 +39,11 @@ class Contents extends MODEL {
   }
 
   public function delete_content($name, $full_path) {
-    $content = $this->get_content($name, $full_path);
     $this->query("DELETE FROM $this->table WHERE name = ? AND full_path = ?", $name, $full_path);
-    if ($content['size'] > 0) {
-      $parent_list = explode('/', $full_path);
-      $parents_path = '';
-      foreach ($parent_list as $index => $parent) {
-        if ($parents_path !== '') $parents_path .= '/';
-        $parents_path .= $parent;
-        if ($index < count($parent_list)-1) $this->query("UPDATE $this->table SET size = size - ? WHERE name = ? AND full_path = ?", $content['size'], $parent_list[$index+1], $parents_path);
-      }
-    }
-    $full_path .= '/' . $name;
-    if ($content['type'] === 'folder') {
-      $this->query("DELETE FROM $this->table WHERE full_path LIKE CONCAT(?,'%')", $full_path);
-    }
+  }
+
+  public function delete_child($path) {
+    $this->query("DELETE FROM $this->table WHERE full_path LIKE CONCAT(?,'%')", $path);
   }
 
   public function set_name($name, $full_path, $value) {
@@ -86,6 +76,10 @@ class Contents extends MODEL {
 
   public function increase_size($name, $full_path, $value) {
     $this->query("UPDATE $this->table SET size = size + ? WHERE name = ? AND full_path = ?", $value, $name, $full_path);
+  }
+
+  public function decrease_size($name, $full_path, $value) {
+    $this->query("UPDATE $this->table SET size = size - ? WHERE name = ? AND full_path = ?", $value, $name, $full_path);
   }
 
   public function set_locked($name, $full_path, $value) {

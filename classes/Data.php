@@ -29,6 +29,10 @@ class Data extends MODEL {
     $this->query("DELETE FROM $this->table WHERE name = ? AND full_path = ?", $name, $full_path);
   }
 
+  public function delete_child($path) {
+    $this->query("DELETE FROM $this->table WHERE full_path LIKE CONCAT(?,'%')", $path);
+  }
+
   public function set_name($name, $full_path, $value) {
     $this->query("UPDATE $this->table SET name = ? WHERE name = ? AND full_path = ?", $value, $name, $full_path);
   }

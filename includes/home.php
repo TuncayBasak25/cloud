@@ -23,12 +23,18 @@
 <form id="new-folder-form" action="actions/new_folder.php" method="post">
   <input id='folder-name' form='new-folder-form' type="text" name="folder_name" placeholder="Folder name" required="required">
   <input id='folder-path' form='new-folder-form' type="text" name="folder_path" placeholder="Folder path" required="required">
-  <input type="submit" name="Create new folder" value="new_folder">
+  <input type="submit" name="new_folder" value="New folder">
 </form>
 
 <form id="new-file-form" action="actions/new_file.php" method="post" enctype="multipart/form-data">
   <input id='file-name' form='new-file-form' type="text" name="file_name" placeholder="File name" required="required">
   <input id='file-path' form='new-file-form' type="text" name="file_path" placeholder="File path" required="required">
   <input type="file" name="file" placeholder="Upload a file" required="required">
-  <input type="submit" name="Upload new file" value="new_file">
+  <input type="submit" name="new_file" value="New file">
+</form>
+
+<form id="delete-content-form" action="actions/delete_content.php" method="post">
+  <input id='content-name' form='delete-content-form' type="text" name="content_name" placeholder="content name" required="required">
+  <input id='content-path' form='delete-content-form' type="text" name="content_path" placeholder="content path" required="required">
+  <input type="submit" name="delete_content" value="Delete content">
 </form>
