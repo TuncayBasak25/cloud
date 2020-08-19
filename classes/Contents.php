@@ -84,6 +84,10 @@ class Contents extends MODEL {
     $this->query("UPDATE $this->table SET size = ? WHERE name = ? AND full_path = ?", $value, $name, $full_path);
   }
 
+  public function increase_size($name, $full_path, $value) {
+    $this->query("UPDATE $this->table SET size = size + ? WHERE name = ? AND full_path = ?", $value, $name, $full_path);
+  }
+
   public function set_locked($name, $full_path, $value) {
     $this->query("UPDATE $this->table SET locked = ? WHERE name = ? AND full_path = ?", $value, $name, $full_path);
   }
