@@ -2,8 +2,14 @@
 session_start();
 chdir("..");
 include "includes/class_auto_loader.php";
+$user_manager = new Users();
 $content_manager = new Contents();
 $data_manager = new Data();
+
+if ($user_manager->refresh_connection($_SESSION['user'], $_SESSION['log_id']) === FALSE) {
+  echo "Your login is timed out please loggin again.";
+  exit;
+}
 
 if (isset($_POST['content_name']) === FALSE || empty($_POST['content_name']) === TRUE) {
   echo "Content name is missing or empty";

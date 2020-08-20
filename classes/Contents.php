@@ -94,4 +94,12 @@ class Contents extends MODEL {
     $this->query("UPDATE $this->table SET trash = ? WHERE name = ? AND full_path = ?", $value, $name, $full_path);
   }
 
+  public function trash_child($path) {
+    $this->query("UPDATE $this->table SET trash = ? WHERE full_path LIKE CONCAT(?,'%')", "true", $path);
+  }
+
+  public function untrash_child($path) {
+    $this->query("UPDATE $this->table SET trash = ? WHERE full_path LIKE CONCAT(?,'%')", "false", $path);
+  }
+
 }
