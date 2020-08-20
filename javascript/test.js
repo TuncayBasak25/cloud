@@ -19,8 +19,7 @@ function buttonClick() {
   xhr.open("POST", "actions/new_folder.php");
   // What to do when server responds
   xhr.onload = function(){
-    document.getElementById('error').innerHTML += this.response;
-    console.log(this.response);
+    document.getElementById('error').innerHTML = this.response;
   };
   xhr.send(data);
 

@@ -91,9 +91,8 @@ if ($_POST['password'] !== $_POST['password_repeat']) {
 }
 
 $hashed_pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
-echo $hashed_pass . "<br>";
 $user_manager->new_user($_POST['username'], $_POST['email'], $hashed_pass);
-echo $user_manager->get_user($_POST['username'])['password'];
+
 
 if (isset($firstname) === TRUE) {
   $user_manager->set_user_firstname($username, $firstname);
