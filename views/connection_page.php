@@ -36,7 +36,12 @@
     xhr.open("POST", "actions/login.php");
     // What to do when server responds
     xhr.onload = function(){
-      document.getElementById('login_message').innerHTML = this.response;
+      if (this.response.length < 50) {
+        document.getElementById('login_message').innerHTML = this.response;
+      }
+      else {
+        document.body.innerHTML = this.response;
+      }
     };
     xhr.send(data);
 
@@ -60,7 +65,12 @@
     xhr.open("POST", "actions/signup.php");
     // What to do when server responds
     xhr.onload = function(){
-      document.getElementById('signup_message').innerHTML = this.response;
+      if (this.response.length < 50) {
+        document.getElementById('signup_message').innerHTML = this.response;
+      }
+      else {
+        document.body.innerHTML = this.response;
+      }
     };
     xhr.send(data);
 
