@@ -54,6 +54,10 @@ class Contents extends MODEL {
     $this->query("UPDATE $this->table SET full_path = ? WHERE name = ? AND full_path = ?", $value, $name, $full_path);
   }
 
+  public function transfer_child($old_path, $new_path) {
+    $this->query("UPDATE $this->table SET full_path = REPLACE(full_path, ?, ?) WHERE full_path LIKE CONCAT(?,'%')", $old_path, $new_path, $old_path);
+  }
+
   public function set_type($name, $full_path, $value) {
     $this->query("UPDATE $this->table SET type = ? WHERE name = ? AND full_path = ?", $value, $name, $full_path);
   }

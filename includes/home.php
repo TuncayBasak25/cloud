@@ -38,3 +38,10 @@
   <input id='content-path' form='delete-content-form' type="text" name="content_path" placeholder="content path" required="required">
   <input type="submit" name="delete_content" value="Delete content">
 </form>
+
+<form id="transfer-folder-form" action="actions/transfer_folder.php" method="post">
+  <input id='folder-name' form='transfer-folder-form' type="text" name="folder_name" placeholder="folder name" required="required">
+  <input id='folder-path' form='transfer-folder-form' type="text" name="folder_path" placeholder="folder path" required="required">
+  <input id='new-path' form='transfer-folder-form' type="text" name="new_path" placeholder="New path" required="required">
+  <input type="submit" name="transfer_folder" value="Transfer folder">
+</form>

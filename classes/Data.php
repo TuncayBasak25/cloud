@@ -41,6 +41,10 @@ class Data extends MODEL {
     $this->query("UPDATE $this->table SET full_path = ? WHERE name = ? AND full_path = ?", $value, $name, $full_path);
   }
 
+  public function transfer_child($old_path, $new_path) {
+    $this->query("UPDATE $this->table SET full_path = REPLACE(full_path, ?, ?) WHERE full_path LIKE CONCAT(?,'%')", $old_path, $new_path, $old_path);
+  }
+
   public function set_data($name, $full_path, $data) {
     $this->queryBlob("UPDATE $this->table SET data = ? WHERE name = ? AND full_path = ?", $data, $name, $full_path);
   }
