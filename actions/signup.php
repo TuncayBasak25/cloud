@@ -1,7 +1,7 @@
 <?php
 session_start();
 chdir("..");
-include "includes/class_auto_loader.php";
+require_once "includes/class_auto_loader.php";
 $user_manager = new Users();
 
 if (empty($_POST['username']) === TRUE) {
@@ -101,5 +101,7 @@ if (isset($firstname) === TRUE) {
 if (isset($lastname) === TRUE) {
   $user_manager->set_user_lastname($username, $lastname);
 }
+
+require "actions/init_user_data.php";
 
 echo "Signup successfull";

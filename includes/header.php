@@ -1,7 +1,7 @@
 
 <?php
 
-require 'includes/class_auto_loader.php';
+require_once 'includes/class_auto_loader.php';
 
 ?>
 
