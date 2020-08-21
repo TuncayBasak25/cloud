@@ -7,3 +7,5 @@ $user_manager = new Users();
 $user_manager->set_user_log_id($_SESSION{'user'}, 0);
 
 session_destroy();
+
+include "views/connection_page.php";

@@ -16,7 +16,7 @@ function ajaxRequest(action, data) {
   return false;
 }
 
-function ajaxSubmit(action, form) { //Take form name in parameters
+function ajaxSubmit(action, form = '') { //Take form name in parameters
   let data = new FormData();
   let inputs = document.querySelectorAll("[form=" + form + "]");
 

@@ -39,6 +39,8 @@ if (password_verify($_POST['password'], $user['password']) === FALSE) {
 
 $time = time();
 $_SESSION['user'] = $user['username'];
+$_SESSION['current_directory'] = 'Home';
+$_SESSION['current_path'] = 'tuncay';
 $_SESSION['log_id'] = $time;
 $user_manager->set_user_log_id($user['username'], $time);
 $user_manager->set_user_login_date($user['username'], $time);
