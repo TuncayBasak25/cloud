@@ -16,6 +16,7 @@ require_once 'includes/class_auto_loader.php';
   <link rel='stylesheet' href='css/normalize.css'>
   <link rel='stylesheet' href='css/main.css'>
   <script type="text/javascript" src="javascript/Form.js"></script>
+  <script type="text/javascript" src="javascript/ajaxRequest.js"></script>
   <title>Cloud</title>
 </head>
 <body style='user-select: none'>
