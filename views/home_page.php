@@ -22,7 +22,7 @@ $current_path = $_SESSION['current_path'];
 
       $parent_list = explode('/', $current_path);
 
-      foreach ($path_list as $key => $path) {
+      foreach ($parent_list as $key => $path) {
         // code...
       }
 
