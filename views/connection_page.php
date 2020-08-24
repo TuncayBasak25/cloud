@@ -5,7 +5,7 @@
 
 
 <form id="login_form" action="actions/login.php" method="post" onsubmit="return ajaxSubmit('actions/login.php', 'login_form');"></form>
-<input id='login_user_id' form='login_form' type="text" name="user_id" placeholder="Username" required="required">
+<input id='login_user_id' form='login_form' type="text" name="user_id" placeholder="Username or Email" required="required">
 <input id='login_password' form='login_form' type="password" name="password" placeholder="Password" required="required" pattern=".{8,}" title="Eight or more characters.">
 <button id='login_button' form='login_form' type="submit" name="submit_login">LOGIN</button>
 <p id="login_message"></p>
@@ -18,6 +18,9 @@
 <button id='signup_button' form='signup_form' type="submit" name="submit_signup">SIGNUP</button>
 <p id="signup_message"></p>
 
+<script type="text/javascript" src="javascript/login_page.js">
+
+</script>
 
 <script type="text/javascript">
   document.getElementById('login_form').addEventListener('submit', event => { event.preventDefault(); });
