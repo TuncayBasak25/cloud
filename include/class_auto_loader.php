@@ -12,7 +12,7 @@ function class_auto_loader($class_name) {
   else if (substr($class_name, -5) === "Model") {
     $sub_folder = "model/";
   }
-  else if (substr($class_name, -4) === "Cont") {
+  else if (substr($class_name, -10) === "Controller") {
     $sub_folder = "controller/";
   }
   else if (substr($class_name, -3) === "INT") {

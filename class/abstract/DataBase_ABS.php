@@ -17,7 +17,7 @@ abstract class DataBase_ABS
 
   public function query($sql, ...$bind_parameters)
   {
-    if (count($bind_parameters) === 0) {
+    if (count($bind_parameters) === 0) {  
       $stmt = $this->conn->prepare($sql);
       if ($stmt === FALSE) {
         $this->error = '<br>' . "SQL error. SQL: $sql ERROR: " . $this->conn->error;
