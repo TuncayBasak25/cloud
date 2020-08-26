@@ -1,6 +1,6 @@
 <?php
 
-abstract class DataBaseABS
+abstract class DataBase_ABS
 {
   private $server = 'localhost';
   private $user;

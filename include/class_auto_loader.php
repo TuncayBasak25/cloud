@@ -18,7 +18,7 @@ function class_auto_loader($class_name) {
   else if (substr($class_name, -3) === "INT") {
     $sub_folder = "interface/";
   }
-  else if (substr($class_name, -3) === "STG") {
+  else if (substr($class_name, -8) === "Strategy") {
     $sub_folder = "strategy/";
   }
   else if (substr($class_name, -3) === "ABS") {
