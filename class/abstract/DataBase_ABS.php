@@ -15,9 +15,9 @@ abstract class DataBase_ABS
 
 
 
-  public function query($sql, ...$bind_parameters)
+  protected function query($sql, ...$bind_parameters)
   {
-    if (count($bind_parameters) === 0) {  
+    if (count($bind_parameters) === 0) {
       $stmt = $this->conn->prepare($sql);
       if ($stmt === FALSE) {
         $this->error = '<br>' . "SQL error. SQL: $sql ERROR: " . $this->conn->error;
@@ -65,7 +65,7 @@ abstract class DataBase_ABS
     return $result;
   }
 
-  public function queryBlob($sql, $blob, ...$testers) {
+  protected function queryBlob($sql, $blob, ...$testers) {
     $types = "b";
 
     foreach ($testers as $tester) {
@@ -134,7 +134,7 @@ abstract class DataBase_ABS
     return TRUE;
   }
 
-  public function createDataBase()
+  protected function createDataBase()
   {
     $sql = "CREATE DATABASE IF NOT EXISTS $this->data_base";
 
@@ -147,7 +147,7 @@ abstract class DataBase_ABS
     return TRUE;
   }
 
-  public function resetDataBase()
+  protected function resetDataBase()
   {
     $sql = "DROP DATABASE IF EXISTS $this->data_base";
 
@@ -168,7 +168,7 @@ abstract class DataBase_ABS
     return TRUE;
   }
 
-  public function deleteDataBase()
+  protected function deleteDataBase()
   {
     $sql = "DROP DATABASE IF EXISTS $this->data_base";
 
@@ -181,7 +181,7 @@ abstract class DataBase_ABS
     return TRUE;
   }
 
-  public function createTable()
+  protected function createTable()
   {
     $sql = "CREATE TABLE IF NOT EXISTS $this->table $this->table_columns";
 
@@ -194,7 +194,7 @@ abstract class DataBase_ABS
     return TRUE;
   }
 
-  public function resetTable()
+  protected function resetTable()
   {
     $sql = "DROP TABLE IF EXISTS $this->table";
 
@@ -215,7 +215,7 @@ abstract class DataBase_ABS
     return TRUE;
   }
 
-  public function deleteTable()
+  protected function deleteTable()
   {
     $sql = "DROP TABLE IF EXISTS $this->table";
 
