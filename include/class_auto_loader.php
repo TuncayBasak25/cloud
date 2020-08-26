@@ -25,7 +25,7 @@ function class_auto_loader($class_name) {
     $sub_folder = "abstract/";
   }
 
-  $main_folder = "classes/";
+  $main_folder = "class/";
   $extention = ".php";
   $full_path = $main_folder . $sub_folder . $class_name . $extention;
 
