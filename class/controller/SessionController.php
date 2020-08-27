@@ -53,7 +53,7 @@ class SessionController
       return FALSE;
     }
     else {
-      $this->set_user_login_date($username, $time); //Refresh user login date stay connected
+      $userModel->set_user_login_date($username, $time); //Refresh user login date stay connected
       return TRUE;
     }
   }

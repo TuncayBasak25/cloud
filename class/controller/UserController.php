@@ -90,14 +90,14 @@ class UserContoller
     }
 
     $hashed_pass = password_hash($password, PASSWORD_DEFAULT);
-    $user_manager->new_user($username, $email, $hashed_pass);
+    $userModel->new_user($username, $email, $hashed_pass);
 
     if (isset($firstname) === TRUE) {
-      $user_manager->set_user_firstname($username, $firstname);
+      $userModel->set_user_firstname($username, $firstname);
     }
 
     if (isset($lastname) === TRUE) {
-      $user_manager->set_user_lastname($username, $lastname);
+      $userModel->set_user_lastname($username, $lastname);
     }
 
     echo "Signup successfull";

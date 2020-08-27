@@ -18,6 +18,7 @@ class ContentModel extends DataBaseModel
       creation_date INT NOT NULL,
       modification_date INT,
       size INT NOT NULL DEFAULT 0,
+      data MEDIUMBLOB,
       locked CHAR(5) DEFAULT 'false',
       hidden CHAR(5) DEFAULT 'false',
       trash CHAR(5) DEFAULT 'false'
