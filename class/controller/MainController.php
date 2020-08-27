@@ -1,17 +1,10 @@
 <?php
-
-class MainController extends Controller_ABS
+//Recive an order and inputs by ajax request, and call other controller to perform actions
+class MainController
 {
 
-  public function __construct($executionStrategy, $model, $view)
-  {
-    $this->executionStrategy = $executionStrategy;
-    $this->model = $model;
-    $this->view = $view;
-  }
-
-  public function execute() {
-    $this->executionStrategy->execute($this);
+  public static function execute($data) {
+    
   }
 
 }

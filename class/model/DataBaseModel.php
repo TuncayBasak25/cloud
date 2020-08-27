@@ -1,10 +1,10 @@
 <?php
 
-abstract class DataBase_ABS
+abstract class DataBaseModel
 {
   private $server = 'localhost';
-  private $user;
-  private $password;
+  private $user = 'root';
+  private $password = '';
 
   private $conn;
   private $error;
