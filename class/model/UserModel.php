@@ -19,7 +19,7 @@ class UserModel extends DataBaseModel
       confirmed CHAR(5) DEFAULT 'false',
 
       log_id INT,
-      actual_folder TEXT,
+      current_directory TEXT,
 
       total_space INT DEFAULT 1000000,
       free_space INT DEFAULT 1000000,
@@ -38,7 +38,8 @@ class UserModel extends DataBaseModel
     return $this->query("INSERT INTO $this->table (username, email, password, signup_date) VALUES (?,?,?,?)", $username, $email, $password, $signup_date);
   }
 
-  public function get_user($username_or_email) {
+  public function get_user($username_or_email)
+  {
     if (strpos($username_or_email, '@') === FALSE) {
       return $this->query("SELECT * FROM $this->table WHERE username = ?", $username_or_email)->fetch_assoc();
     }
@@ -141,25 +142,6 @@ class UserModel extends DataBaseModel
     $this->connect();
 
     return $this->query("UPDATE $this->table SET used_space = ? WHERE username = ?", $value, $username);
-  }
-
-  public function refresh_connection($username, $log_id)
-  {
-    $this->connect();
-
-    $user = $this->get_user($username);
-    $time = time();
-    if ($time - $user['login_date'] > 1800) { //If no connection established since 30 minute
-      $this->set_user_log_id($username, 0);
-      session_destroy();
-
-      // Logg out
-      return FALSE;
-    }
-    else {
-      $this->set_user_login_date($username, $time); //Refresh user login date stay connected
-      return TRUE;
-    }
   }
 
 }
