@@ -30,7 +30,7 @@ class HomeView
 
       </section>
     </section>
-
+    <img style="display: none" src="test.png" onload="iconEqualHeight(); this.parentNode.removeChild(this);" ></script>
     <?php
   }
 
