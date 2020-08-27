@@ -2,7 +2,7 @@
 
 abstract class DataBaseModel
 {
-  
+
   private $server = 'localhost';
   private $user = 'root';
   private $password = '';
@@ -139,6 +139,8 @@ abstract class DataBaseModel
 
   protected function createDataBase()
   {
+    $this->conn = new mysqli($this->server, $this->user, $this->password);
+
     $sql = "CREATE DATABASE IF NOT EXISTS $this->data_base";
 
     if ($this->conn->query($sql) === FALSE) {
@@ -152,6 +154,8 @@ abstract class DataBaseModel
 
   protected function resetDataBase()
   {
+    $this->conn = new mysqli($this->server, $this->user, $this->password);
+
     $sql = "DROP DATABASE IF EXISTS $this->data_base";
 
     if ($this->conn->query($sql) === FALSE) {
@@ -173,6 +177,8 @@ abstract class DataBaseModel
 
   protected function deleteDataBase()
   {
+    $this->conn = new mysqli($this->server, $this->user, $this->password);
+
     $sql = "DROP DATABASE IF EXISTS $this->data_base";
 
     if ($this->conn->query($sql) === FALSE) {

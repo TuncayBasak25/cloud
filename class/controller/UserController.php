@@ -90,7 +90,9 @@ class UserController
     }
 
     $hashed_pass = password_hash($password, PASSWORD_DEFAULT);
+
     $userModel->new_user($username, $email, $hashed_pass);
+    $userModel->set_user_current_directory($username, $username . '/' . 'Home');
 
     if (isset($firstname) === TRUE) {
       $userModel->set_user_firstname($username, $firstname);

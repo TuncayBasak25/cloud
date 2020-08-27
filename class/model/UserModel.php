@@ -25,10 +25,10 @@ class UserModel extends DataBaseModel
       free_space INT DEFAULT 1000000,
       used_space INT DEFAULT 0
     )";
+    $this->createDataBase();
 
     $this->connect();
 
-    $this->createDataBase();
     $this->createTable();
   }
 
@@ -124,6 +124,13 @@ class UserModel extends DataBaseModel
     $this->connect();
 
     return $this->query("UPDATE $this->table SET log_id = ? WHERE username = ?", $value, $username);
+  }
+
+  public function set_user_current_directory($username, $value)
+  {
+    $this->connect();
+
+    return $this->query("UPDATE $this->table SET current_directory = ? WHERE username = ?", $value, $username);
   }
 
   public function set_user_total_space($username, $value)

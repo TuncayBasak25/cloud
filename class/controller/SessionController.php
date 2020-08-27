@@ -25,7 +25,7 @@ class SessionController
     $userModel->set_user_log_id($userData['username'], $time);
     $userModel->set_user_login_date($userData['username'], $time);
 
-    //Login View
+    HomeView::display();
   }
 
   public static function logout()
@@ -35,7 +35,7 @@ class SessionController
     $userModel->set_user_log_id($_SESSION['username'], 0);
     session_destroy();
 
-    //Logout View
+    LoginView::display();
   }
 
   public static function refresh()
@@ -49,7 +49,7 @@ class SessionController
       $userModel->set_user_log_id($username, 0);
       session_destroy();
 
-      // Logout View
+      LoginView::display();
       return FALSE;
     }
     else {

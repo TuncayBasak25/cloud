@@ -1,15 +1,16 @@
-function ajaxRequest(action, data) {
+function ajaxRequest(action, request, data) {
+  if (typeof data === 'undefined') {
+    data = new FormData();
+  }
+
+  data.append('request', request);
+
   // (B) AJAX
   let xhr = new XMLHttpRequest();
   xhr.open("POST", action);
   // What to do when server responds
   xhr.onload = function(){
-    if (this.response.length < 50) {
-      document.getElementById('login_message').innerHTML = this.response;
-    }
-    else {
-      document.body.innerHTML = this.response;
-    }
+    document.body.innerHTML = this.response;
   };
   xhr.send(data);
 

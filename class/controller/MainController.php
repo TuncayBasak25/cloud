@@ -9,6 +9,9 @@ class MainController
     if ($request === "login") {
       SessionController::login($inputs['user_id'], $inputs['password']);
     }
+    else if ($request === "logout") {
+      SessionController::logout();
+    }
     else if ($request === "signup") {
       UserController::signup($inputs['username'], $inputs['email'], $inputs['password'], $inputs['password_repeat']);
     }

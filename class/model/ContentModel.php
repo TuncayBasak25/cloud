@@ -24,9 +24,10 @@ class ContentModel extends DataBaseModel
       trash CHAR(5) DEFAULT 'false'
     )";
 
-    $this->connect();
-
     $this->createDataBase();
+
+    $this->connect();
+    
     $this->createTable();
   }
 

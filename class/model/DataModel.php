@@ -15,9 +15,10 @@ class Data extends DataBaseModel
       data MEDIUMBLOB
     )";
 
-    $this->connect();
-
     $this->createDataBase();
+
+    $this->connect();
+    
     $this->createTable();
   }
 

@@ -6,6 +6,8 @@ class LoginView
   public static function display()
   {
     ?>
+    <script type="text/javascript" src="javascript/login_page.js"></script>
+
     <form id="login_form" action="action/ajaxRequest.php" method="post" onsubmit="return ajaxSubmit('action/ajaxRequest.php', 'login_form');"></form>
     <input id='login_user_id' form='login_form' type="text" name="user_id" placeholder="Username or Email" required="required">
     <input id='login_password' form='login_form' type="password" name="password" placeholder="Password" required="required" pattern=".{8,}" title="Eight or more characters.">
@@ -20,14 +22,7 @@ class LoginView
     <button id='signup_button' form='signup_form' type="submit" name="request" value="signup">SIGNUP</button>
     <p id="signup_message"></p>
 
-    <script type="text/javascript" src="javascript/login.js">
-
-    </script>
-
-    <script type="text/javascript">
-      document.getElementById('login_form').addEventListener('submit', event => { event.preventDefault(); });
-      document.getElementById('signup_form').addEventListener('submit', event => { event.preventDefault(); });
-    </script>
+    <img style="display: none" src="test.png" onload="loginPage(); this.parentNode.removeChild(this);" ></script>
 
     <?php
   }
