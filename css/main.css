@@ -1,0 +1,12 @@
+.rc_menu_item
+{
+  color: white;
+
+  width: 100%;
+  text-align: left;
+}
+
+.rc_menu_item:hover
+{
+  background-color: blue;
+}

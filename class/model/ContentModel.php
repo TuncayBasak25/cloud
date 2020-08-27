@@ -27,7 +27,7 @@ class ContentModel extends DataBaseModel
     $this->createDataBase();
 
     $this->connect();
-    
+
     $this->createTable();
   }
 
@@ -38,6 +38,13 @@ class ContentModel extends DataBaseModel
     $this->connect();
 
     return $this->query("INSERT INTO $this->table (owner, name, full_path, creation_date, modification_date) VALUES (?,?,?,?,?)", $owner, $name, $full_path, $creation_date, $creation_date);
+  }
+
+  public function get_folder_content($full_path)
+  {
+    $this->connect();
+
+    return $this->query("SELECT * FROM $this->table WHERE full_path = ?", $full_path)->fetch_all(MYSQLI_ASSOC);
   }
 
   public function get_content($name, $full_path)

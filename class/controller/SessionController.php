@@ -6,6 +6,7 @@ class SessionController
   public static function login($user_id, $password)
   {
     $userModel = new UserModel();
+    $contentModel = new ContentModel();
 
     $userData = $userModel->get_user($user_id);
     if (empty($userData) === TRUE) {
@@ -25,7 +26,9 @@ class SessionController
     $userModel->set_user_log_id($userData['username'], $time);
     $userModel->set_user_login_date($userData['username'], $time);
 
-    HomeView::display();
+    $content_list = $contentModel->get_folder_content($userData['username']);
+
+    HomeView::display($content_list);
   }
 
   public static function logout()

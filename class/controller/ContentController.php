@@ -1,26 +1,12 @@
 <?php
 
-class ContentContoller
+class ContentController
 {
 
-  public static function newFile($file_name, $file_path, $data) {
-    $contentModel = new ContetModel();
+  public static function newFile($file_name, $file_path, $data)
+  {
+    $contentModel = new ContentModel();
     $dataModel = new DataModel();
-
-    if (isset($file_name) === FALSE || empty($file_name) === TRUE) {
-      echo "File name is missing or empty.";
-      exit;
-    }
-
-    if (isset($_POST['file_path']) === FALSE || empty($_POST['file_path']) === TRUE) {
-      echo "File path is missing or empty.";
-      exit;
-    }
-
-    if (isset($file_path) === FALSE || empty($file_path) === TRUE) {
-      echo "File path is missing or empty.";
-      exit;
-    }
 
     if (isset($data) === TRUE) {
       $category_type = explode('/', $data['type']);
@@ -35,10 +21,10 @@ class ContentContoller
 
     if (empty($contentModel->get_content($file_name, $file_path)) === FALSE) {
       echo "This file already exists.";
-      exit;
+      return FALSE;
     }
 
-    $contentModel->new_file($_SESSION['username'], $file_name, $file_path);
+    $contentModel->new_content($_SESSION['username'], $file_name, $file_path);
 
     $contentModel->set_type($file_name, $file_path, $file_type);
     $contentModel->set_category($file_name, $file_path, $file_category);
@@ -64,6 +50,27 @@ class ContentContoller
     }
 
     echo "File successfully created";
+    return TRUE;
+  }
+
+  public static function newFolder($name, $path)
+  {
+    $contentModel = new ContentModel();
+    $dataModel = new DataModel();
+
+    if (empty($contentModel->get_content($name, $path)) === FALSE) {
+      echo "This file already exists.";
+      return FALSE;
+    }
+
+    $contentModel->new_content($_SESSION['username'], $name, $path);
+
+    $contentModel->set_type($name, $path, "folder");
+
+    $content = $contentModel->get_content($name, $path);
+
+    ContentView::display($content);
+
     return TRUE;
   }
 

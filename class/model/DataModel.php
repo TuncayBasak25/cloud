@@ -1,6 +1,6 @@
 <?php
 
-class Data extends DataBaseModel
+class DataModel extends DataBaseModel
 {
 
   public function __construct()
@@ -18,7 +18,7 @@ class Data extends DataBaseModel
     $this->createDataBase();
 
     $this->connect();
-    
+
     $this->createTable();
   }
 

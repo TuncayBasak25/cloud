@@ -55,7 +55,7 @@ class UserModel extends DataBaseModel
   {
     $this->connect();
 
-    return $this->query("SELECT * FROM $this->table WHERE $column_name = ?", $column_value)->fetch_assoc();
+    return $this->query("SELECT * FROM $this->table WHERE $column_name = ?", $column_value)->fetch_all(MYSQLI_ASSOC);
   }
 
   public function delete_user($username_or_email)

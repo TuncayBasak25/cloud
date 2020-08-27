@@ -16,6 +16,8 @@ require_once 'include/class_auto_loader.php';
 
   <link rel='stylesheet' href='css/main.css'>
   <script type="text/javascript" src="javascript/ajaxRequest.js"></script>
+  <script type="text/javascript" src="javascript/mainBoard.js"></script>
+  <script type="text/javascript" src="javascript/general.js"></script>
   <title>Cloud</title>
 </head>
-<body style='user-select: none'>
+<body oncontextmenu="return false" onclick="clickOnBody()" style='user-select: none'>

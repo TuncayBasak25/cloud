@@ -15,6 +15,9 @@ class MainController
     else if ($request === "signup") {
       UserController::signup($inputs['username'], $inputs['email'], $inputs['password'], $inputs['password_repeat']);
     }
+    else if ($request === "new_folder") {
+      ContentController::newFolder($inputs['name'], $inputs['path']);
+    }
   }
 
 }
