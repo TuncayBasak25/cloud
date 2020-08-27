@@ -5,6 +5,7 @@ class ContentContoller
 
   public static function newFile($file_name, $file_path, $data) {
     $contentModel = new ContetModel();
+    $dataModel = new DataModel();
 
     if (isset($file_name) === FALSE || empty($file_name) === TRUE) {
       echo "File name is missing or empty.";
@@ -63,6 +64,7 @@ class ContentContoller
     }
 
     echo "File successfully created";
+    return TRUE;
   }
 
 }

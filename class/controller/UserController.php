@@ -1,6 +1,6 @@
 <?php
 
-class UserContoller
+class UserController
 {
 
   public static function signup($username, $email, $password, $password_repeat, $firstname = '', $lastname = '') {
@@ -32,7 +32,7 @@ class UserContoller
       echo "Username must contain only alphanumerical charachter with _ - allowed.";
     }
 
-    if (empty($user_manager->get_user($username)) === FALSE) {
+    if (empty($userModel->get_user($username)) === FALSE) {
       echo "This username is already taken.";
       return FALSE;
     }
@@ -69,7 +69,7 @@ class UserContoller
       return FALSE;
     }
 
-    if (empty($user_manager->get_user($email)) === FALSE) {
+    if (empty($userModel->get_user($email)) === FALSE) {
       echo "This email is already taken.";
       return FALSE;
     }

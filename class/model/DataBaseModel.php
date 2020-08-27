@@ -2,6 +2,7 @@
 
 abstract class DataBaseModel
 {
+  
   private $server = 'localhost';
   private $user = 'root';
   private $password = '';
@@ -57,11 +58,13 @@ abstract class DataBaseModel
     }
 
     $result = $stmt->get_result();
-    if ($result === FALSE) {
+    if (empty($stmt->error) === FALSE) {
       $this->error = '<br>' . "Statement getResult ERROR: $stmt->error";
+      echo "Yesssdsdkjfvzdkjfvhbzbze";
       echo $this->error;
-      return TRUE;
+      return FALSE;
     }
+    if ($result === FALSE) return TRUE; //No need for result, only confirm
     return $result;
   }
 

@@ -14,6 +14,9 @@ class Data extends DataBaseModel
       full_path TEXT NOT NULL,
       data MEDIUMBLOB
     )";
+
+    $this->connect();
+
     $this->createDataBase();
     $this->createTable();
   }

@@ -25,6 +25,9 @@ class UserModel extends DataBaseModel
       free_space INT DEFAULT 1000000,
       used_space INT DEFAULT 0
     )";
+
+    $this->connect();
+
     $this->createDataBase();
     $this->createTable();
   }

@@ -3,8 +3,15 @@
 class MainController
 {
 
-  public static function execute($data) {
-    
+  public static function execute($inputs, $datas) {
+    $request = $inputs['request'];
+
+    if ($request === "login") {
+      SessionController::login($inputs['user_id'], $inputs['password']);
+    }
+    else if ($request === "signup") {
+      UserController::signup($inputs['username'], $inputs['email'], $inputs['password'], $inputs['password_repeat']);
+    }
   }
 
 }

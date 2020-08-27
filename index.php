@@ -8,7 +8,7 @@ include "include/header.php";
 
 
 
-
+LoginView::display();
 
 
 
