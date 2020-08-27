@@ -15,7 +15,6 @@ require_once 'include/class_auto_loader.php';
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
   <link rel='stylesheet' href='css/main.css'>
-  <?php include 'include/javascript_auto_loader.php'; //Load all javascript files ?>
   <title>Cloud</title>
 </head>
 <body oncontextmenu="return false" onclick="clickOnBody()" style='user-select: none'>

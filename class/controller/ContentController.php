@@ -49,27 +49,21 @@ class ContentController
       $dataModel->new_data($_SESSION['user'], $file_name, $file_path, $file_data);
     }
 
-    echo "File successfully created";
     return TRUE;
   }
 
   public static function newFolder($name, $path)
   {
     $contentModel = new ContentModel();
-    $dataModel = new DataModel();
 
     if (empty($contentModel->get_content($name, $path)) === FALSE) {
-      echo "This file already exists.";
+      echo "This folder already exists.";
       return FALSE;
     }
 
     $contentModel->new_content($_SESSION['username'], $name, $path);
 
     $contentModel->set_type($name, $path, "folder");
-
-    $content = $contentModel->get_content($name, $path);
-
-    ContentView::display($content);
 
     return TRUE;
   }

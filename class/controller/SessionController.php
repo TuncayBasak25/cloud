@@ -6,7 +6,6 @@ class SessionController
   public static function login($user_id, $password)
   {
     $userModel = new UserModel();
-    $contentModel = new ContentModel();
 
     $userData = $userModel->get_user($user_id);
     if (empty($userData) === TRUE) {
@@ -26,9 +25,7 @@ class SessionController
     $userModel->set_user_log_id($userData['username'], $time);
     $userModel->set_user_login_date($userData['username'], $time);
 
-    $content_list = $contentModel->get_folder_content($userData['username']);
-
-    HomeView::display($content_list);
+    echo '{"username": "' . $userData['username'] . '"}';
   }
 
   public static function logout()
@@ -38,7 +35,7 @@ class SessionController
     $userModel->set_user_log_id($_SESSION['username'], 0);
     session_destroy();
 
-    LoginView::display();
+    echo "You are logged out.";
   }
 
   public static function refresh()
@@ -48,15 +45,15 @@ class SessionController
     $userData = $userModel->get_user($_SESSION['username']);
     $time = time();
 
-    if ($time - $user['login_date'] > 1800) { //If no connection established since 30 minute
-      $userModel->set_user_log_id($username, 0);
+    if ($time - $userData['login_date'] > 1800) { //If no connection established since 30 minute
+      $userModel->set_user_log_id($userData['username'], 0);
       session_destroy();
-
-      LoginView::display();
+      echo "You are logged out.";
       return FALSE;
     }
     else {
-      $userModel->set_user_login_date($username, $time); //Refresh user login date stay connected
+      $userModel->set_user_login_date($userData['username'], $time); //Refresh user login date stay connected
+      echo '{"username": "' . $userData['username'] . '"}';
       return TRUE;
     }
   }

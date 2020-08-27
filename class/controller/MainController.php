@@ -7,17 +7,15 @@ class MainController
     $request = $inputs['request'];
 
 
-    if ($request === "first_load") {
-      if (isset($_SESSION['username']) === TRUE) {
-        $contentModel = new ContentModel();
-
-        $content_list = $contentModel->get_folder_content($_SESSION['username']);
-
-        HomeView::display($content_list);
-      }
-      else {
-        LoginView::display();
-      }
+    if ($request === "first_load" && isset($_SESSION['username']) === TRUE) {
+      ?>
+      <script type="text/javascript">
+        let connectedAs = '<?= $_SESSION['username'] ?>';
+      </script>
+      <?php
+    }
+    else if ($request === "refresh") {
+      SessionController::refresh();
     }
     else if ($request === "login") {
       SessionController::login($inputs['user_id'], $inputs['password']);

@@ -102,8 +102,6 @@ class UserController
       $userModel->set_user_lastname($username, $lastname);
     }
 
-    echo "Signup successfull";
-
     return TRUE;
   }
 
