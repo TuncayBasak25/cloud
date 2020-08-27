@@ -12,7 +12,7 @@ class ContentBoardView
             <p class="rc_menu_item">New File</p>
             <p class="rc_menu_item">Select All</p>
       </div>
-      <div id="board_view" class="content_folder row" style="width: 100%; height: 100%">
+      <div id="board_view" class="content_folder row p-0 m-0" style="width: 100%; height: 100%">
         <?php
         if (empty($content_list) === FALSE) {
           foreach ($content_list as $key => $content) {

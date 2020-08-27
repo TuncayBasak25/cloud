@@ -45,9 +45,10 @@ function ajaxSubmit(action, form = '') { //Take form name in parameters
 function newFolder(path, dom_id) {
 
   let data = new FormData();
+  let name = prompt("Folder name");
 
-  data.append("request", "new_folder");
-  data.append("name", "new_folder");
+  data.append("request", 'new_folder');
+  data.append("name", name);
   data.append("path", path);
 
   // (B) AJAX
@@ -55,11 +56,13 @@ function newFolder(path, dom_id) {
   xhr.open("POST", 'action/ajaxRequest.php');
   // What to do when server responds
   xhr.onload = function(){
-    if (this.response.charAt(0) === '<') {
+    if (this.response.length > 100) {
       document.getElementById(dom_id).innerHTML += this.response;
+      console.log(document.getElementById(dom_id).lastChild);
+      setEqualHeight(document.getElementById(dom_id).lastChild);
     }
     else {
-      //Error
+      console.log(this.response);
     }
   };
   xhr.send(data);

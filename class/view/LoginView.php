@@ -6,8 +6,7 @@ class LoginView
   public static function display()
   {
     ?>
-    <script type="text/javascript" src="javascript/login_page.js"></script>
-
+    
     <form id="login_form" action="action/ajaxRequest.php" method="post" onsubmit="return ajaxSubmit('action/ajaxRequest.php', 'login_form');"></form>
     <input id='login_user_id' form='login_form' type="text" name="user_id" placeholder="Username or Email" required="required">
     <input id='login_password' form='login_form' type="password" name="password" placeholder="Password" required="required" pattern=".{8,}" title="Eight or more characters.">
