@@ -29,6 +29,9 @@ class MainController
     else if ($request === "new_folder") {
       ContentController::newFolder($inputs['name'], $inputs['path']);
     }
+    else {
+      echo "Request $request is not implemented";
+    }
   }
 
 }

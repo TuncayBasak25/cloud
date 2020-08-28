@@ -5,11 +5,8 @@ class SessionModel
   username = false;
   isConnected = false;
 
-  constructor() {
-    if (typeof connectedAs !== 'undefined') {
-      this.username = connectedAs;
-      this.isConnected = true;
-    }
+  constructor(parent) {
+    this.parent = parent;
   }
 
   logout() {
@@ -44,11 +41,11 @@ class SessionModel
   }
 
   refreshResponse() {
-    console.log(this.response);
+    console.log(this.response); document.body.innerHTML = this.response;
 
     if (this.response.charAt(0) !== '{') {
       this.that.username = false;
-      this.that.isConnected = false;
+      this.that.parent.setConnectionState(false);
     }
   }
 }

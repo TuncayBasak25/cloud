@@ -1,0 +1,1 @@
+let mainController = new MainController();
