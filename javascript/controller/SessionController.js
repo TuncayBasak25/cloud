@@ -16,25 +16,4 @@ class SessionController
     this.sessionModel.refreshLogin();
   }
 
-  setConnectionState(value) {
-    let lastValue = this.sessionModel.isConnected;
-    this.sessionModel.isConnected = value;
-
-    if (lastValue !== value) {
-      if (value === true) {
-        this.onLogin();
-      }
-      else {
-        this.onLogout();
-      }
-    }
-  }
-
-  onLogin() {
-    //User home
-  }
-
-  onLogout() {
-    LoginView.display();
-  }
 }

@@ -15,8 +15,10 @@ class SessionModel
 
   logoutResponse() {
     console.log(this.response);
-    this.that.username = false;
     this.that.isConnected = false;
+    this.that.username = false;
+
+    LoginView.display();
   }
 
   login(user_id, password) {
@@ -33,6 +35,8 @@ class SessionModel
     if (this.response.charAt(0) === '{') {
       this.that.username = JSON.parse(this.response).username;
       this.that.isConnected = true;
+
+      UserHomeView.display();
     }
   }
 
@@ -45,7 +49,9 @@ class SessionModel
 
     if (this.response.charAt(0) !== '{') {
       this.that.username = false;
-      this.that.parent.setConnectionState(false);
+      this.that.isConnected = false;
+
+      LoginView.display();
     }
   }
 }

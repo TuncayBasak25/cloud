@@ -9,8 +9,8 @@ class MainController
 
   start() {
     if (typeof connectedAs !== 'undefined') {
-      this.username = connectedAs;
-      this.isConnected = true;
+      this.sessionController.sessionModel.username = connectedAs;
+      this.sessionController.sessionModel.isConnected = true;
 
       this.sessionController.refreshLogin();
     }
